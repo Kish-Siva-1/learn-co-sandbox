@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if logged_in? 
       redirect to '/portfolio'
     else
-      erb :'users/signup'
+      erb :'users/create_user'
     end
   end
 
