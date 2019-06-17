@@ -13,18 +13,18 @@ class UsersController < ApplicationController
       @user = User.new(params)
       if @user.save 
         session[:user_id] = @user.id
-        redirect to '/tweets'
+        redirect to '/portfolio'
       else 
         redirect to '/signup'
       end
     else 
-      redirect to '/tweets'
+      redirect to '/portfolio'
     end 
   end
   
   get '/login' do 
     if logged_in?
-      redirect to '/tweets'
+      redirect to '/portfolio'
     else 
       erb :'users/login'
     end 
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user.authenticate(params[:password]) && (user.username == params[:username]) 
       session[:user_id] = user.id
-      redirect to '/tweets'
+      redirect to '/portfolio'
     end
   end
   
@@ -47,10 +47,6 @@ class UsersController < ApplicationController
       redirect to '/login'
     end 
   end
-  
-  get "/users/:slug" do 
-    erb :'users/show'
-  end 
   
   post '/logout' do 
     redirect to '/login'
