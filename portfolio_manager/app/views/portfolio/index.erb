@@ -3,12 +3,11 @@
   <h2><%= current_user.username %>'s Portfolio </h2>
   
   <% current_user.portfolios.each do |y| %>
-  <h3>  <%y.name%>'s Portfolio </h3>
-    
-    <% y.stocks.each do |x| %>
-      <li> <%= x.name %> <%= x.stock_weight %> </li> <br>
-    <% end %> 
-    
+  <h3>  <%=y.name.capitalize%>'s Portfolio </h3>
+    <%y.stocks.each do |x|%>
+      <%= x.name %>
+    <%end%>
+      <%= y.stock_weight %>
   <%end%>
   
   </div>
