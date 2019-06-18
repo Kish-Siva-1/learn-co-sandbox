@@ -3,7 +3,6 @@ class CreatePortfolio < ActiveRecord::Migration
     create_table :portfolios do |t|
       t.string  :user_id
       t.string  :name
-      t.string  :stock_name
       t.float   :stock_weight
     end
   end

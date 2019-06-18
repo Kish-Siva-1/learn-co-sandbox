@@ -2,6 +2,7 @@ class PortfolioController < ApplicationController
   
   get '/portfolio' do 
     if logged_in?
+      binding.pry
       @user = current_user 
       @portfolios = Portfolio.all
       erb :"/portfolio/index"
@@ -12,6 +13,8 @@ class PortfolioController < ApplicationController
   
   get '/portfolio/new' do 
     if logged_in?
+      @stocks = Stock.all
+      @portfolios = Portfolio.all
       erb :"portfolio/new"
     else 
       redirect to '/login'

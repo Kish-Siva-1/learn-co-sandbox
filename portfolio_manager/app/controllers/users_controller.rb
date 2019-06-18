@@ -9,12 +9,12 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do 
+    binding.pry
     if !logged_in?
-      binding.pry
       @user = User.new(params)
       if @user.save 
-        session[:user_id] = @user.id
         binding.pry
+        session[:user_id] = @user.id
         redirect to '/portfolio'
       else 
         redirect to '/signup'
