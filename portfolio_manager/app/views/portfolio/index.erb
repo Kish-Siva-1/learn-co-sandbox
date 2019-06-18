@@ -4,7 +4,7 @@
   
   <% current_user.portfolios.each do |y| %>
 
-  <h3>  <%=y.name.capitalize%>'s Portfolio </h3> <h5><a href="/portfolio/<%=y.id%>/edit">Edit Portfolio</a> <a href='/portfolio/new'>Add A Stock</a></h5> 
+  <h3>  <%=y.name.capitalize%>'s Portfolio </h3> <h5><a href="/portfolio/<%=y.id%>/edit">Edit Portfolio</a> <a href='/stock/new'>Add A Stock</a></h5> 
     <%y.stocks.each do |x|%>
       <%= x.name %>
     <%end%>
