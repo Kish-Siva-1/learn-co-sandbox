@@ -37,6 +37,7 @@ class PortfolioController < ApplicationController
   end 
   
   get '/portfolio/:id' do 
+    @portfolios = Portfolio.all
     if logged_in?
       erb :'portfolio/show'
     else 
@@ -46,6 +47,8 @@ class PortfolioController < ApplicationController
   
   get '/portfolio/:id/edit' do 
     if logged_in?
+      @portfolio = Portfolio.find(params[:id])
+      @stocks = Stock.all
       erb :'portfolio/edit'
     else 
       redirect to '/login'
