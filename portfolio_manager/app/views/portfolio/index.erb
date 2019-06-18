@@ -1,14 +1,19 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
-  <h2><%= current_user.username.capitalize %>'s Investments </h2>
+  <h2><%= current_user.username.capitalize %>'s Investments </h2> 
   
   <% current_user.portfolios.each do |y| %>
-  <h3>  <%=y.name.capitalize%>'s Portfolio </h3>
+
+  <h3>  <%=y.name.capitalize%>'s Portfolio </h3> <h5><a href="/portfolio/<%=y.id%>/edit">Edit Portfolio</a> <a href='/portfolio/new'>Add A Stock</a></h5> 
     <%y.stocks.each do |x|%>
       <%= x.name %>
     <%end%>
       <%= y.stock_weight %>
   <%end%>
+  
+  <br>
+  <br>
+  <h4><a href='/portfolio/new'>Create A New Portfolio</a></h4>
   
   </div>
 </div>

@@ -1,4 +1,3 @@
 class StockController < ApplicationController
   
-  
 end 
