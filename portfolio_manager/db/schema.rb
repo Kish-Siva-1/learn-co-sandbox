@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190617205425) do
+ActiveRecord::Schema.define(version: 20190618223806) do
 
   create_table "investments", force: :cascade do |t|
     t.string "portfolio_id"
     t.string "stock_id"
+    t.string "weight_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -33,6 +34,10 @@ ActiveRecord::Schema.define(version: 20190617205425) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+  end
+
+  create_table "weights", force: :cascade do |t|
+    t.integer "portfolio_weight"
   end
 
 end
