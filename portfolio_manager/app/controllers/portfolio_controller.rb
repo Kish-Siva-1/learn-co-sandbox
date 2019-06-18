@@ -18,64 +18,56 @@ class PortfolioController < ApplicationController
     end 
   end 
   
-  post '/tweets/new' do 
+  post '/portfolio/new' do 
     
     if logged_in?  
       if (params[:content] != "")
-        @tweet = current_user.tweets.build(params)
-        @tweet.save
+        @portfolios = current_user.portfolio.build(params)
+        @portfolios.save
       end
     else 
       redirect to '/login'
     end
     
   end 
-
-  post '/tweets' do
-    if logged_in? 
-      erb :"/tweets/tweets"
-    else 
-      redirect to '/login'
-    end 
-  end
   
-  get '/tweets/:id' do 
+  get '/portfolio/:id' do 
     if logged_in?
-      erb :'users/show'
+      erb :'portfolio/show'
     else 
-      redirect to '/login'
+      redirect to '/users/login'
     end 
   end
   
-  get '/tweets/:id/edit' do 
+  get '/portfolio/:id/edit' do 
     if logged_in?
-      erb :'tweets/edit_tweet'
+      erb :'portfolio/edit'
     else 
       redirect to '/login'
     end 
   end
   
-  patch '/tweets/:id' do
+  patch '/portfolio/:id' do
     if logged_in? 
-      @tweet = Tweet.find_by_id(params[:id])
-      if (params[:content] != "") && (current_user.id == @tweet.user_id) 
-        @tweet.content = params[:content]
-        @tweet.save
+      @portfolios = Portfolio.find_by_id(params[:id])
+      if (params[:content] != "") && (current_user.id == @portfolios.user_id) 
+        @portfolios.content = params[:content]
+        @portfolios.save
       else 
-        redirect to "/tweets/#{current_user.id}/edit"
+        redirect to "/portfolio/#{current_user.id}/edit"
       end 
     else 
       redirect to '/login'
     end 
   end
   
-  delete '/tweets/:id/delete' do
+  delete '/portfolio/:id/delete' do
     if logged_in? 
-      @tweet = Tweet.find_by_id(params[:id])
-      if (params[:content] != "") && (current_user.id == @tweet.user_id) 
-        @tweet.delete
+      @portfolios = Portfolio.find_by_id(params[:id])
+      if (params[:content] != "") && (current_user.id == @portfolios.user_id) 
+        @portfolios.delete
       else 
-        redirect to "/tweets/#{current_user.id}/edit"
+        redirect to "/portfolios/#{current_user.id}/edit"
       end 
     else 
       redirect to '/login'
