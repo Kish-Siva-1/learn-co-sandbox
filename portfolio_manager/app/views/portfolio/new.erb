@@ -4,7 +4,11 @@
   
   <h3>Create a New Portfolio</h3>
   <form method="POST" action='/portfolio/new'><br>
-    Portfolio: <input type="text" id='portfolio' name='portfolio'><br><br>
+    Portfolio Name: <input type="text" name='portfolio[name]'><br><br>
+    Stock <% 1 %>: <input type="text" name='stock[name]'> Portfolio Weight: <input type="text" name='stock[weight]'> 
+    
+    
+    
     <input type="submit" value ='Submit'>
   </form>
     
