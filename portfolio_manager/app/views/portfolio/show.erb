@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+  <h2><%= current_user.username.capitalize %>'s Portfolio </h2>
+  
+  <h3>  <%=@portfolio.name.capitalize%> </h3>
+   <% @portfolio.stocks.each do |z| %>
+      <%=z.name%>
+   <%end%>
+      <%= @portfolio.stock_weight %>
+  
+  </div>
+</div>

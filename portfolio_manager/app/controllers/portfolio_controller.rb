@@ -37,7 +37,7 @@ class PortfolioController < ApplicationController
   end 
   
   get '/portfolio/:id' do 
-    @portfolios = Portfolio.all
+    @portfolio = Portfolio.find(params[:id])
     if logged_in?
       erb :'portfolio/show'
     else 
@@ -56,17 +56,16 @@ class PortfolioController < ApplicationController
   end
   
   patch '/portfolio/:id' do
-    if logged_in? 
-      @portfolios = Portfolio.find_by_id(params[:id])
-      if (params[:content] != "") && (current_user.id == @portfolios.user_id) 
-        @portfolios.content = params[:content]
-        @portfolios.save
-      else 
-        redirect to "/portfolio/#{current_user.id}/edit"
+    if logged_in?  
+      if !params[:portfolio][:stock_weight].empty?
+        portfolio = Portfolio.find(params[:id])
+        portfolio.update(params[:portfolio]) 
       end 
+        erb :"/portfolio/index"
     else 
       redirect to '/login'
-    end 
+    end
+    
   end
   
   delete '/portfolio/:id/delete' do
