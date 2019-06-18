@@ -65,16 +65,16 @@ class PortfolioController < ApplicationController
     else 
       redirect to '/login'
     end
-    
   end
   
   delete '/portfolio/:id/delete' do
     if logged_in? 
-      @portfolios = Portfolio.find_by_id(params[:id])
-      if (params[:content] != "") && (current_user.id == @portfolios.user_id) 
-        @portfolios.delete
+      @portfolio = Portfolio.find(params[:id])
+      if current_user.id == @portfolio.user_id.to_i
+        @portfolio.delete
+        redirect to "/portfolio"
       else 
-        redirect to "/portfolios/#{current_user.id}/edit"
+        redirect to "/portfolio/#{current_user.id}/edit"
       end 
     else 
       redirect to '/login'
