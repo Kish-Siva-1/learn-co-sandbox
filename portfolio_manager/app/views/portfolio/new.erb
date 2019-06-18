@@ -7,30 +7,34 @@
   <form method="POST" action='/portfolio/new'><br>
   
     Portfolio Name: <input type="text" name='portfolio[name]'><br><br>
-    Stock <% 1 %>: <input type="text" name='stock[name]'> Portfolio Weight: <input type="text" name='stock[weight]'> 
-    <input type="submit" value ='Submit'>
-    
-  <br>
- 
-  <input type="text" name="portfolio[name]">
- 
-  <br>
  
   <label>Choose an existing stock:</label>
  
   <br>
- 
+  
+  <%if @stocks.empty?%>
+    <i>No stocks in memory. Please create a new stock.</i> 
+  <br>
+  <%end%>
   <%@stocks.each do |stock|%>
-    <input type="checkbox" name="portfolio[stock_ids][]" id="<%=stock.id%>" value="<%=stock.id%>"><%=stock.name%></input>
+    <input type="radio" name="portfolio[stock_ids][]" id="<%=stock.id%>" value="<%=stock.id%>"><%=stock.name%></input>
   <%end%>
  
   <br>
- 
-    <label>and/or, create a new stock:</label>
+  
+  Portfolio Weight: <input type="text" name='portfolio[stock_weight]'>
+  
+  <br>
+  <br>
+    <label>Create a new stock:</label>
     <br>
     <label>Stock Name:</label>
       <input  type="text" name="stock[name]"></input>
-    <br><br>
+  <br>
+    <label>Stock Description:</label>
+      <input  type="text" name="stock[description]"></input>
+  <br>
+  <br>
   <input type="submit" value="Create Portfolio">  
   
   </form>

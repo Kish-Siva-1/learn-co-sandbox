@@ -2,7 +2,6 @@ class PortfolioController < ApplicationController
   
   get '/portfolio' do 
     if logged_in?
-      binding.pry
       @user = current_user 
       @portfolios = Portfolio.all
       erb :"/portfolio/index"
@@ -24,10 +23,13 @@ class PortfolioController < ApplicationController
   post '/portfolio/new' do 
     
     if logged_in?  
-      if (params[:content] != "")
-        @portfolios = current_user.portfolio.build(params)
-        @portfolios.save
-      end
+        binding.pry
+        portfolio = current_user.portfolios.build(params[:portfolio])
+        portfolio.save
+        if !params[:stock][:name].empty?
+          portfolio.stocks << Stock.create(params[:stock]) 
+        end 
+        erb :"/portfolio/index"
     else 
       redirect to '/login'
     end
