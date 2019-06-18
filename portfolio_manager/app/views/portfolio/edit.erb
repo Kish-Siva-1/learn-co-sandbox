@@ -6,7 +6,7 @@
   
   <form action="/portfolio/<%=@portfolio.id%>" method="POST"><br>
   
-    Portfolio Name: <input type="text" name='portfolio[name]'><br><br>
+    Portfolio Name: <input type="text" name='portfolio[name]' value=<%= @portfolio.name %>> <br><br>
  
   <label>Choose an existing stock:</label>
  
