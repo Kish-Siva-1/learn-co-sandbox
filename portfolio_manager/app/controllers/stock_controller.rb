@@ -13,19 +13,17 @@ class StockController < ApplicationController
   post '/stock/new/:id' do 
     store = {}
     n = 0
-    params[:stock].each do |x,y|
+    params.each do |x,y|
       break if x == "id"
       store[x] = y.reject{|_,v| v.blank?}
     end 
     
     binding.pry
-    
     @id = params[:id]
-    binding.pry
     
     if logged_in?  
-        portfolio = current_user.portfolios(@id).create(store[:stock])
-        Stock.create(store[:stock]).weights.create(store[:weight])
+        portfolio = current_user.portfolios(@id).create(store["stock"])
+        Stock.create(store["stock"]).weights.create(store["weight"])
         portfolio.stocks << Stock.all.last
         erb :"/portfolio/index"
     else 

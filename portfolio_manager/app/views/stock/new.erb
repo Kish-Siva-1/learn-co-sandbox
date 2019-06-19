@@ -3,75 +3,77 @@
   <h2><%= current_user.username.capitalize %>'s Portfolio </h2>
   
   <h3>Add a New Stock</h3>
-
+  
+  <h5>Please fill out a portfolio weight for every stock.</h5>
+  
   <form method="POST" action='/stock/new/<%=@id%>'><br>
 
-    Stock Name: <input type="text" name='stock[name_1]'>
+    Stock Name: <input type="text" name='stock[][name]'>
     
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_1]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[name_2]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_2]'>
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
     
     <br>
     <br>
     
-    Stock Name: <input type="text" name='stock[name_3]'>
+    Stock Name: <input type="text" name='stock[][name]'>
     
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_3]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[name_4]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_4]'>
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
     
     <br>
     <br>
     
-    Stock Name: <input type="text" name='stock[name_5]'>
+    Stock Name: <input type="text" name='stock[][name]'>
     
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_5]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[name_6]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_6]'>
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
     
     <br>
     <br>
     
-    Stock Name: <input type="text" name='stock[name_7]'>
+    Stock Name: <input type="text" name='stock[][name]'>
     
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_7]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[name_8]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_8]'>
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
     
     <br>
     <br>
     
-    Stock Name: <input type="text" name='stock[name_9]'>
+    Stock Name: <input type="text" name='stock[][name]'>
     
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_9]'>
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
     
     <br>
     <br>
     
-    Stock Name: <input type="text" name='stock[name_10]'>
+    Stock Name: <input type="text" name='stock[][name]'>
     
-    Portfolio Weight:  <input type="text" name='weight[portfolio_weight_10]'>
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[][name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[][name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[][name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[][name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
     
     <br>
     <br>
