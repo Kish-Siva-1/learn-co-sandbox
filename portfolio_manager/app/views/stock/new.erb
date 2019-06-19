@@ -2,40 +2,81 @@
   <div class="col-md-8 col-md-offset-2">
   <h2><%= current_user.username.capitalize %>'s Portfolio </h2>
   
-  <h3>Create a New Portfolio</h3>
+  <h3>Add a New Stock</h3>
   
-  <form method="POST" action='/portfolio/new'><br>
+  <form method="POST" action='/stock/new'><br>
   
-    Portfolio Name: <input type="text" name='portfolio[name]'><br><br>
- 
-  <label>Choose an existing stock:</label>
- 
-  <br>
-  
-  <%if @stocks.empty?%>
-    <i>No stocks in memory. Please create a new stock.</i> 
-  <br>
-  <%end%>
-  <%@stocks.each do |stock|%>
-    <input type="radio" name="portfolio[stock_ids][]" id="<%=stock.id%>" value="<%=stock.id%>"><%=stock.name%></input>
-  <%end%>
- 
-  <br>
-  
-  Portfolio Weight: <input type="text" name='portfolio[stock_weight]'>
-  
-  <br>
-  <br>
-    <label>Create a new stock:</label>
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
     <br>
-    <label>Stock Name:</label>
-      <input  type="text" name="stock[name]"></input>
-  <br>
-    <label>Stock Description:</label>
-      <input  type="text" name="stock[description]"></input>
-  <br>
-  <br>
-  <input type="submit" value="Create Portfolio">  
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+    Stock Name: <input type="text" name='stock[name]'>
+    
+    Portfolio Weight:  <input type="text" name='weight[portfolio_weight]'>
+    
+    <br>
+    <br>
+    
+  <input type="submit" value="Add Stocks">  
   
   </form>
     
