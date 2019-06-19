@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20190618223806) do
   create_table "portfolios", force: :cascade do |t|
     t.string "user_id"
     t.string "name"
-    t.float  "stock_weight"
   end
 
   create_table "stocks", force: :cascade do |t|
