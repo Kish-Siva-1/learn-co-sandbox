@@ -23,11 +23,9 @@ class PortfolioController < ApplicationController
     if logged_in?  
       if !params[:portfolio].empty?
         portfolio = current_user.portfolios.create(params[:portfolio])
-        binding.pry
-        portfolio.weights << Weight.create(params[:weight])
-        Stock.all.last.weights << portfolio.weights 
         if !params[:stock][:name].empty?
-          portfolio.stocks << Stock.create(params[:stock]) 
+          Stock.create(params[:stock]).weights.create(params[:weight])
+          portfolio.stocks << Stock.all.last
         end 
       end 
         erb :"/portfolio/index"
@@ -81,5 +79,12 @@ class PortfolioController < ApplicationController
       redirect to '/login'
     end
   end
+  
+  get '/resetall' do 
+    Portfolio.destroy_all
+    User.destroy_all
+    Weight.destroy_all
+    Stock.destroy_all
+  end 
   
 end 

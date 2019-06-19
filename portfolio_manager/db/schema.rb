@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20190618223806) do
 
   create_table "weights", force: :cascade do |t|
     t.integer "portfolio_weight"
+    t.string  "stock_id"
   end
 
 end

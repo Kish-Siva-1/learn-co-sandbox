@@ -8,8 +8,9 @@
     <%y.stocks.each do |x|%>
       <%= x.name %>
       <%= binding.pry %>
+      <%= x.weights[-1].portfolio_weight %>
     <%end%>
-      <%= y.weights.portfolio_weight %>
+
   <%end%>
   
   <br>
