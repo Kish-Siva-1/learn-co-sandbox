@@ -41,8 +41,6 @@ class StockController < ApplicationController
         k += 1
       end 
       
-      binding.pry
-      
       erb :"/portfolio/index"
     
     else 
