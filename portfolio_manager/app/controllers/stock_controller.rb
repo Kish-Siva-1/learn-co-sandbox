@@ -33,10 +33,11 @@ class StockController < ApplicationController
       
       k = 0
       while k < stock_names.length
-      binding.pry
-        portfolio = current_user.portfolios(@id).create(stock_names[k])
-        Stock.create(stock_names[k]).weights.create(portfolio_weight[k])
-        portfolio.stocks << Stock.all.last
+        portfolio = current_user.portfolios.find(@id)
+        stock_store = Stock.create(stock_names[k])
+        weight_store = Weight.create(portfolio_weight[k])
+        portfolio.stocks << stock_store 
+        stock_store.weights << weight_store
         k += 1
       end 
       
