@@ -22,7 +22,7 @@ class PortfolioController < ApplicationController
   post '/portfolio/new' do 
     binding.pry
     if logged_in?  
-      if !params[:portfolio][:stock_weight].empty?
+      if !params[:portfolio].empty?
         portfolio = current_user.portfolios.create(params[:portfolio])
         portfolio.weights << Weight.create(params[:weight])
         if !params[:stock][:name].empty?
