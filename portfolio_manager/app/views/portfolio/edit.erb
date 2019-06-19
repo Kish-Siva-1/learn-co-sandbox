@@ -8,7 +8,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   
     Portfolio Name: <input type="text" name='portfolio[name]' value=<%= @portfolio.name %>> <br><br>
- 
+  
   <label>Choose an existing stock:</label>
  
   <br>
@@ -22,8 +22,8 @@
   <%end%>
  
   <br>
-  
-  Portfolio Weight: <input type="text" name='weight[portfolio_weight]' value=<%= @portfolio.stock_weight %>>
+
+  Portfolio Weight: <input type="text" name='weight[portfolio_weight]' value="<%= @portfolio.stocks.first.weights.first.portfolio_weight %>">
   
   <br>
   </br>

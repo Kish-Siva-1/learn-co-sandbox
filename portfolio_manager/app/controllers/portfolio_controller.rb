@@ -56,9 +56,10 @@ class PortfolioController < ApplicationController
   
   patch '/portfolio/:id' do
     if logged_in?  
-      if !params[:portfolio][:stock_weight].empty?
-        portfolio = Portfolio.find(params[:id])
-        portfolio.update(params[:portfolio]) 
+      if !params[:portfolio][:name].empty?
+        @portfolio = Portfolio.find(params[:id])
+        @portfolio.update(params[:portfolio]) 
+        @portfolio.stocks.last.weights.first.update(params[:weight])
       end 
         erb :"/portfolio/index"
     else 
