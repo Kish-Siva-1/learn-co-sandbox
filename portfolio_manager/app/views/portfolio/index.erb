@@ -7,6 +7,7 @@
   <h3>  <%=y.name.capitalize%>'s Portfolio </h3> <h5><a href="/portfolio/<%=y.id%>/edit">Edit Portfolio</a> <a href='/stock/new'>Add A Stock</a></h5> 
     <%y.stocks.each do |x|%>
       <%= x.name %>
+      <%= binding.pry %>
     <%end%>
       <%= y.weights.portfolio_weight %>
   <%end%>
