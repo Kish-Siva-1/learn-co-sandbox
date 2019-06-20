@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   post '/signup' do 
     if !logged_in?
       @user = User.new(params)
+      binding.pry
       if @user.save 
         session[:user_id] = @user.id
         redirect to '/portfolio'
@@ -31,7 +32,6 @@ class UsersController < ApplicationController
   end
   
   post '/login' do 
-    User.create(params)
     user = User.find_by(username: params[:username])
     if user.authenticate(params[:password]) && (user.username == params[:username]) 
       session[:user_id] = user.id
