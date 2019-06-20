@@ -22,11 +22,11 @@
 
   <%end%>
   
-  <%else%>
-    This portfolio does not have any stocks. Please click here to add add new stocks. <a href="'/stock/new/<%=@id%>">Add New Stocks</a>
-  <%end%>
-  
   <input type="submit" value="Edit Stocks">  
+  
+  <%else%>
+    This portfolio does not have any stocks. Please click here to add add new stocks. <a href="/stock/new/<%=@id%>">Add New Stocks</a>
+  <%end%>
   
   </form>
     
