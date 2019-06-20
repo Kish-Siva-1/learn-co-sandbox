@@ -5,10 +5,10 @@
   <h3>Add a New Stock</h3>
   
   <h5>Please fill out a portfolio weight for every stock.</h5>
-  
+
   <form method="POST" action='/stock/<%=@id%>'><br>
   <input id="hidden" type="hidden" name="_method" value="patch">
-  
+  <%if !current_user.portfolios.find(@id).stocks.empty?%>
   <%current_user.portfolios.find(@id).stocks.each_with_index do |x,index|%> 
     
     Stock Name: <input type="text" name='stock[][name]' value=<%=x.name%>>
@@ -20,6 +20,10 @@
     <br>
     <br>
 
+  <%end%>
+  
+  <%else%>
+    This portfolio does not have any stocks. Please click here to add add new stocks. <a href="'/stock/new/<%=@id%>">Add New Stocks</a>
   <%end%>
   
   <input type="submit" value="Edit Stocks">  
