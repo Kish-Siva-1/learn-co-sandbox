@@ -47,7 +47,7 @@ class PortfolioController < ApplicationController
   get '/portfolio/:id/edit' do 
     if logged_in?
       @portfolio = Portfolio.find(params[:id])
-      @stocks = Stock.all
+      @stocks = current_user.portfolios.collect{|x| x.stocks.collect{|y| y}}.flatten
       erb :'portfolio/edit'
     else 
       redirect to '/login'

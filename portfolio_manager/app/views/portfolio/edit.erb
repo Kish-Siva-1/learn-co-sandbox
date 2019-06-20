@@ -22,11 +22,11 @@
   <%end%>
  
   <br>
-
-  Portfolio Weight: <input type="text" name='weight[portfolio_weight]' value="<%= @portfolio.stocks.first.weights.first.portfolio_weight %>">
-  
   <br>
-  </br>
+  
+  Portfolio Weight: <input type="text" name='weight[portfolio_weight]' value="<%= @portfolio.stocks.first.weights.last.portfolio_weight %>">
+  <br>
+  <br>
   
   <input type="submit" value="Create Portfolio">  
   
