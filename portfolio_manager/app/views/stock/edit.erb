@@ -9,11 +9,13 @@
   <form method="POST" action='/stock/<%=@id%>'><br>
   <input id="hidden" type="hidden" name="_method" value="patch">
   
-  <%current_user.portfolios.find(@id).stocks.each do |x|%> 
+  <%current_user.portfolios.find(@id).stocks.each_with_index do |x,index|%> 
     
     Stock Name: <input type="text" name='stock[][name]' value=<%=x.name%>>
     
     Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]' value=<%=x.weights.first.portfolio_weight%>>
+
+    <font size="-1"><a href="/stock/<%=@id%>/<%=index%>/delete">Delete Stock</a></font>
     
     <br>
     <br>

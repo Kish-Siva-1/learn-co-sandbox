@@ -11,7 +11,7 @@ class PortfolioController < ApplicationController
   
   get '/portfolio/new' do 
     if logged_in?
-      @stocks = Stock.all
+      @stocks = current_user.portfolios.collect{|x| x.stocks.collect{|y| y}}.flatten
       @portfolios = Portfolio.all
       erb :"portfolio/new"
     else 
