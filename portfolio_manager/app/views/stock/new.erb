@@ -7,6 +7,8 @@
   <h5>Please fill out a portfolio weight for every stock.</h5>
   
   <form method="POST" action='/stock/new/<%=@id%>'><br>
+  
+  <%10.times do%> 
 
     Stock Name: <input type="text" name='stock[][name]'>
     
@@ -15,72 +17,14 @@
     <br>
     <br>
     
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
-    Stock Name: <input type="text" name='stock[][name]'>
-    
-    Portfolio Weight:  <input type="text" name='weight[][portfolio_weight]'>
-    
-    <br>
-    <br>
-    
+  <%end%>
+  
   <input type="submit" value="Add Stocks">  
   
   </form>
-    
+  <br>
+  
+  <a href='/stock/edit/<%=@id%>'>Edit Stocks</a>
+  
   </div>
 </div>
