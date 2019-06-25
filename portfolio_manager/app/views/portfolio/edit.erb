@@ -6,8 +6,8 @@
   
   <form action="/portfolio/<%=@portfolio.id%>" method="POST"><br>
   <input id="hidden" type="hidden" name="_method" value="patch">
-  
-    Portfolio Name: <input type="text" name='portfolio[name]' value=<%= @portfolio.name %>> <br><br>
+
+    Portfolio Name: <input type="text" name='portfolio[name]' maxlength='100' value=<%= @portfolio.name.tr("_"," ").to_str%>> <br><br>
   
   <label>Choose an existing stock:</label>
  
@@ -23,12 +23,14 @@
  
   <br>
   <br>
-  
+
+  <%if !@portfolio.stocks.empty?%>
   Portfolio Weight: <input type="text" name='weight[portfolio_weight]' value="<%= @portfolio.stocks.first.weights.last.portfolio_weight %>">
+  <%end%>
   <br>
   <br>
   
-  <input type="submit" value="Create Portfolio">  
+  <input type="submit" value="Edit Portfolio">  
   
   </form>
   
